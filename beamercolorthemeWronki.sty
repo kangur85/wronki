@@ -1,0 +1,37 @@
+\mode<presentation>
+
+\definecolor{kan-dark-background}{RGB}{35,33,30}
+\definecolor{kan-medium-background}{RGB}{45,41,36}
+\definecolor{kan-light-background}{RGB}{112,107,102}
+\definecolor{kan-limon}{RGB}{174,238,0}
+\definecolor{kan-text}{RGB}{255,255,255}
+\definecolor{kan-title-color}{rgb}{.44,.42,.4}
+\definecolor{kan-structure-color}{RGB}{232,255,170}
+\definecolor{kan-block-background}{RGB}{60,55,49}
+\definecolor{kan-block-background-alerted}{RGB}{231,88,109}
+
+\definecolor{kan-errors}{RGB}{255,44,75}
+\definecolor{kan-blue}{RGB}{10,157,255}
+\definecolor{kan-greyblue}{RGB}{77,145,224}
+
+% Settings
+\setbeamercolor*{title page header}{fg=kan-text}
+\setbeamercolor*{author}{fg=kan-text}
+\setbeamercolor*{date}{fg=kan-medium-background}
+\setbeamercolor*{normal text}{fg=kan-text}
+\setbeamercolor*{background canvas}{bg=kan-dark-background}
+\setbeamercolor*{structure}{fg=kan-structure-color}
+\setbeamercolor*{itemize item}{fg=kan-structure-color}
+
+\setbeamercolor{block title}{fg=kan-text,bg=kan-block-background}
+\setbeamercolor{block body}{fg=kan-text,bg=kan-medium-background}
+\setbeamercolor{block title alerted}{fg=kan-text,bg=kan-block-background-alerted}
+\setbeamercolor{block body alerted}{fg=kan-text,bg=kan-medium-background}
+
+\setbeamerfont{date}{size=\normalsize}
+
+\renewcommand{\textit}[1]{\textcolor{kan-limon}{#1}}
+\renewcommand{\textbf}[1]{\colorbox{kan-text}{\textcolor{kan-dark-background}{#1}}}
+\newcommand{\kError}[1]{\colorbox{kan-errors}{\textcolor{white}{#1}}}
+\mode
+<all>

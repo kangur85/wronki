@@ -1,0 +1,146 @@
+\mode<presentation>
+
+\RequirePackage{fontspec}
+\RequirePackage{pdftexcmds}
+\usefonttheme{serif} % default family is serif
+\setmainfont{Libel Suit}
+
+\setbeamertemplate{background}{%
+    \setbeamercolor{background canvas}{bg=kan-dark-background}
+    \ifnum\c@framenumber=1%
+    {%
+        \parbox[c][.95\paperheight][b]{\paperwidth}{%
+            \begin{center}
+                {{\setmainfont{Chinatoo}\fontsize{80pt}{1pt}\selectfont\textcolor{kan-light-background}{N}}}
+            \end{center}
+        }
+    }
+    \fi%
+}
+
+% Title page
+\defbeamertemplate*{title page}{Wronki}[1][]
+{%
+    \begin{center}
+        \textcolor{kan-text}{
+            \Huge{\inserttitle}\\
+            \vspace*{40px}\large{\insertauthor}\\
+            %\vspace*{70px}\normalsize{\insertdate}\\
+            \ifx\insertdate\@empty%
+            \else%
+                \vspace*{0.1cm}
+                {\usebeamerfont{date}\textcolor{kan-light-background}{\insertdate}}
+            \fi%
+        }
+    \end{center}
+}
+
+% Title frame
+\newcommand{\kTitleFrame}[0]{%
+    \begin{frame}
+        \titlepage
+    \end{frame}
+}
+
+% ``Raw'' section frame
+\newcommand{\kRawSectionFrame}[8]{{%
+    \setbeamertemplate{background}{%
+        \setbeamercolor{background canvas}{bg=kan-dark-background}
+        {%
+            \parbox[t][#2\paperheight][#3]{#4\paperwidth}{%
+                \ifnum\pdf@strcmp{#1}{r}=0%
+                    \begin{flushright}%
+                \else\ifnum\pdf@strcmp{#1}{l}=0%
+                    \begin{flushleft}%
+                \else\ifnum\pdf@strcmp{#1}{c}=0%
+                    \begin{center}%
+                \fi\fi\fi%
+                \setmainfont{Chinatoo}\fontsize{#5}{1pt}\selectfont\textcolor{#8}{#6}%
+                \ifnum\pdf@strcmp{#1}{r}=0%
+                    \end{flushright}%
+                \else\ifnum\pdf@strcmp{#1}{l}=0%
+                    \end{flushleft}%
+                \else\ifnum\pdf@strcmp{#1}{c}=0%
+                    \end{center}%
+                \fi\fi\fi%
+            }
+        }
+    }
+    \begin{frame}
+        \begin{center}
+            {\usebeamercolor[fg]{structure}\Huge{#7}}
+        \end{center}
+    \end{frame}
+}}
+
+
+% Section frame
+\newcommand{\kSectionFrame}[2]{%
+    \ifnum\pdf@strcmp{#1}{butterfly}=0%
+        \kRawSectionFrame{r}{1}{t}{.9}{135pt}{M}{#2}{kan-medium-background}
+    \else\ifnum\pdf@strcmp{#1}{lion}=0%
+        \kRawSectionFrame{c}{.9}{b}{1}{175pt}{k}{#2}{kan-medium-background}%
+    \else\ifnum\pdf@strcmp{#1}{dragon}=0%
+        \kRawSectionFrame{c}{.9}{b}{1}{155pt}{n}{#2}{kan-medium-background}%
+    \else\ifnum\pdf@strcmp{#1}{butterfly2}=0%
+        \kRawSectionFrame{l}{1}{t}{.9}{135pt}{v}{#2}{kan-medium-background}%
+    \else\ifnum\pdf@strcmp{#1}{phoenix}=0%
+        \kRawSectionFrame{l}{1}{t}{.9}{165pt}{X}{#2}{kan-medium-background}%
+    \else\ifnum\pdf@strcmp{#1}{empty}=0%
+        \kRawSectionFrame{l}{1}{t}{.9}{155pt}{}{#2}{kan-medium-background}%
+    \else%%%
+        \begin{frame}%
+            \kError{kSectionFrame -- illegal first argument's value \"{}#1\"{}.}%
+        \end{frame}%
+    \fi\fi\fi\fi\fi\fi%
+}
+
+
+% Table of contents
+\newcommand{\kTOCFrame}[1]{{%
+    \setbeamertemplate{background}{%
+        \setbeamercolor{background canvas}{bg=kan-dark-background}
+        {%
+            \parbox[r][\paperheight][b]{\paperwidth}{%
+                \begin{flushright}
+                    \setmainfont{chinatoo}\fontsize{219pt}{1pt}\selectfont\textcolor{kan-medium-background}{o}
+                \end{flushright}
+            }
+        }
+    }
+    \begin{frame}
+        \frametitle{#1}
+        \tableofcontents[
+            currentsubsection,
+            hideothersubsections,
+            sectionstyle=show,
+        subsectionstyle=shaded]
+    \end{frame}
+}}
+
+
+% Questions frame
+\newcommand{\kQuestionsFrame}[1]{{%
+    \setbeamertemplate{background}{%
+        \setbeamercolor{background canvas}{bg=kan-dark-background}
+        {%
+            \parbox[t][\paperheight][b]{\paperwidth}{%
+                \begin{center}%
+                    \textcolor{kan-light-background}{
+                        {\tiny Powered by~}%
+                        {\fontfamily{lmr}\normalsize\selectfont \LaTeX}
+                        {\small kaszkowiak.eu}
+                    }
+                \end{center}%
+            }
+        }
+    }
+    \begin{frame}
+        \begin{center}
+            {\usebeamercolor[fg]{normal text}\Huge{#1}}
+        \end{center}
+    \end{frame}
+}}
+
+\mode
+<all>
