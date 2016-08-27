@@ -8,6 +8,7 @@ The template uses two non-standard fonts. Both of them are free. You can clone t
 
 1. [Libel Suit](http://www.dafont.com/libel-suit.font)
 2. [Chinatoo](http://www.dafont.com/chinatoo.font)
+
 *Note that fonts are required at compilation stage only as lualatex includes the fonts into result pdf file.*
 
 # Installation
