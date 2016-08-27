@@ -1,6 +1,6 @@
 # Just Another Beamer Template
 You don’t want to create an another ordinary Beamer presentation, do you? Despite you changed the colour theme, everyone immediately knows it’s been made in LaTeX, everyone knows those templates. I am not saying it’s wrong (a lot of my slideshows looked like that) but might you consider using a template looking different? How much different? Have a look at my first Beamer template! I hope you will enjoy it!
-
+!(banner)[https://raw.githubusercontent.com/kangur85/wronki/master/banner.jpg]
 # Requirements
 The template uses two non-standard fonts. Both of them are free. You can clone the fonts from here or download them from dafont.com:
 
